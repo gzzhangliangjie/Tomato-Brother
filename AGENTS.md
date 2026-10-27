@@ -71,6 +71,7 @@ Assets/
 
 - 脚本会 `git add -A` 全部改动 → commit → 依次推送 `origin/main`（GitHub fork）与 `gitee/main`（Gitee 镜像），任一远端失败会自动重试一次并在最后汇总提示
 - 远程布局：`origin` = GitHub（gzzhangliangjie/Tomato-Brother），`upstream` = 原作者仓库（lancer1126/Tomato-Brother，只读），`gitee` = Gitee 镜像（gzzhangliangjie/Tomato-Brother）
+- 三个远程全部走 SSH（`git@github.com:...` / `git@gitee.com:...`），使用 `~/.ssh/id_ed25519` 密钥认证，不会弹验证框；Gitee 可直连，**GitHub 依赖本机代理（127.0.0.1:4780，透明代理开启时 SSH 直连即通）**，若推送超时先确认代理软件已开启
 - **禁止**只推单个远端或用裸 `git push`，否则两边会失去同步；若 `commit.sh` 推送失败，修复网络后重跑 `git push origin main && git push gitee main`
 
 ## Unity 资产注意事项
