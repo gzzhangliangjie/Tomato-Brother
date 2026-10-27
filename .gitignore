@@ -79,3 +79,6 @@ crashlytics-build.properties
 
 # VS Conde config file
 .vsconfig
+
+# 命令行打包日志（见 AGENTS.md 构建命令的 -logFile 参数）
+unity_build*.log
