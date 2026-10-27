@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemy
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: 25d5101cae24fe84eb024096782c5de2, type: 3}
+    - {fileID: 21300000, guid: ec89914f5b816a24d934dd93dd0576a1, type: 3}
+    - {fileID: 21300000, guid: 166fce9c70042c4458b7108f2ff49d15, type: 3}
+    - {fileID: -592553144, guid: 68dcad22719a5224c91e634698775bba, type: 3}
+    - {fileID: -2031533763, guid: e5d323a42da00ed4291a342b082af631, type: 3}
+    - {fileID: 21300000, guid: 049c42483ca6fd249b433e2589233691, type: 3}
+    - {fileID: 1805404553, guid: 36f00d7b33487cd41b0201013d904276, type: 3}
+    - {fileID: 2018860508, guid: 1e42bb6a1f46ff84fbc429d9702a9b12, type: 3}
+    - {fileID: 160302685, guid: 6d8ef0876d921824ab83e7e7175885a9, type: 3}
+    - {fileID: -1682480403, guid: c066a0274f379384986f037d6a03f4f0, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 68dcad22719a5224c91e634698775bba: -592553144
+    - e5d323a42da00ed4291a342b082af631: -2031533763
+    - c066a0274f379384986f037d6a03f4f0: -1682480403
+    - 6d8ef0876d921824ab83e7e7175885a9: 160302685
+    - 049c42483ca6fd249b433e2589233691: 21300000
+    - 1e42bb6a1f46ff84fbc429d9702a9b12: 2018860508
+    - 36f00d7b33487cd41b0201013d904276: 1805404553
+    - 25d5101cae24fe84eb024096782c5de2: 21300000
+    - 166fce9c70042c4458b7108f2ff49d15: 21300000
+    - ec89914f5b816a24d934dd93dd0576a1: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -592553144, guid: 68dcad22719a5224c91e634698775bba, type: 3}
+  - {fileID: -2031533763, guid: e5d323a42da00ed4291a342b082af631, type: 3}
+  - {fileID: -1682480403, guid: c066a0274f379384986f037d6a03f4f0, type: 3}
+  - {fileID: 160302685, guid: 6d8ef0876d921824ab83e7e7175885a9, type: 3}
+  - {fileID: 21300000, guid: 049c42483ca6fd249b433e2589233691, type: 3}
+  - {fileID: 2018860508, guid: 1e42bb6a1f46ff84fbc429d9702a9b12, type: 3}
+  - {fileID: 1805404553, guid: 36f00d7b33487cd41b0201013d904276, type: 3}
+  - {fileID: 21300000, guid: 25d5101cae24fe84eb024096782c5de2, type: 3}
+  - {fileID: 21300000, guid: 166fce9c70042c4458b7108f2ff49d15, type: 3}
+  - {fileID: 21300000, guid: ec89914f5b816a24d934dd93dd0576a1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bird_0
+  - colt_0
+  - slime_run_0
+  - slime_idle_0
+  - fork
+  - goblin_run_0
+  - goblin_idle_0
+  - 1
+  - 4
+  - 2
+  m_RenderDataMap: {}
+  m_Tag: Enemy
+  m_IsVariant: 0

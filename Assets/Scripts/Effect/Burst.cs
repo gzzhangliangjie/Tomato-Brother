@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Effect
@@ -9,6 +10,9 @@ namespace Effect
         [SerializeField]
         private ParticleSystem burstParticle;
         private Action _releaseAction;
+
+        // duration 随特效预制体变化，按值缓存避免每次爆炸都分配
+        private static readonly Dictionary<float, WaitForSeconds> WaitCache = new();
 
         private void Awake()
         {
@@ -36,7 +40,12 @@ namespace Effect
         /// <returns></returns>
         private IEnumerator RecycleBurst(float duration = 0.3f)
         {
-            yield return new WaitForSeconds(duration);
+            if (!WaitCache.TryGetValue(duration, out var wait))
+            {
+                wait = new WaitForSeconds(duration);
+                WaitCache[duration] = wait;
+            }
+            yield return wait;
             _releaseAction.Invoke();
         }
     }

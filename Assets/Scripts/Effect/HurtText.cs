@@ -9,6 +9,9 @@ namespace Effect
     {
         private Action _releaseAction;
 
+        // 每次受击都会弹出飘字，等待对象缓存为静态避免反复分配
+        private static readonly WaitForSeconds HideInterval = new(0.25f);
+
         private void OnEnable()
         {
             StartCoroutine(HideText());
@@ -22,9 +25,9 @@ namespace Effect
         private IEnumerator HideText()
         {
             transform.DOBlendableMoveBy(new Vector2(0, 2f), 0.1f);
-            yield return new WaitForSeconds(0.25f);
+            yield return HideInterval;
             transform.DOBlendableMoveBy(new Vector2(0, -0.5f), 0.1f);
-            yield return new WaitForSeconds(0.25f);
+            yield return HideInterval;
             
             _releaseAction.Invoke();
         }

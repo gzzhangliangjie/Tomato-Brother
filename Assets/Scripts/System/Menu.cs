@@ -13,6 +13,9 @@ namespace System
 
         private void Awake()
         {
+            // vSyncCount 非 0 时 targetFrameRate 不生效，需一并关闭
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
             settingUI.SetActive(false);
         }
 
