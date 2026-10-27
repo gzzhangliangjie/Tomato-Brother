@@ -24,7 +24,8 @@ Assets/
     UI/          BaseUI 及各界面，Shop/（回合商店）
     ScriptObj/   数据资产定义：Character、Item、Weapon、Bag、GameStatus、PlayerStatus、ShopProduct
     Util/        LayerUtil（图层常量）
-  Editor/        CommandLineBuild.cs（命令行打包）、AtlasCreator.cs（Sprite Atlas 批量生成）
+  Editor/        CommandLineBuild.cs（命令行打包）、AtlasCreator.cs（Sprite Atlas 批量生成）、
+                 PrefabOptimizer.cs（Animator Culling 批量设置）
   Atlases/       Sprite Atlas 图集（按 Sprites 子目录分 6 集，由 AtlasCreator 生成）
   Prefabs/ Resources/ Sprites/ Anim/ Audio/ UI/ Inventory/ Map/ Fonts/ Materials/
 ```
@@ -53,13 +54,13 @@ Assets/
 
 ```bash
 "D:/Unity/6000.0.30f1/Editor/Unity.exe" -batchmode -quit -nographics \
-  -projectPath . -executeMethod AtlasCreator.CreateAtlasesAndBuild -logFile unity_build.log
+  -projectPath . -executeMethod PrefabOptimizer.OptimizeAndBuild -logFile unity_build.log
 ```
 
-- 上面的一体化命令会先刷新 Sprite Atlas（`Tools → Create Sprite Atlases` 的命令行版，幂等）再打包；只打包不建图集用 `-executeMethod CommandLineBuild.BuildWin64`
+- 上面的一体化命令：刷新 Sprite Atlas → 设置 Animator Culling → 打包；三项均可单独执行（`AtlasCreator.CreateAtlases` / `PrefabOptimizer.SetAnimatorCulling` / `CommandLineBuild.BuildWin64`），编辑器菜单也有 `Tools → Create Sprite Atlases` 和 `Tools → Optimize Prefabs (Animator Culling)`
 - 产物：`Builds/Windows/TomatoBrother.exe`；日志尾部出现 `BUILD OK` 即成功
 - 本项目暂无自动化测试，改完逻辑只能靠编辑器里从 `Start` 场景跑一遍冒烟验证
-- 已知无害告警：`DashBoy._isDashing` 未使用（CS0414）；`BaseWeapon.cs:98`、`LightingShiv.cs:44` 的 `OverlapCircleNonAlloc` 过时提示（替换方案见性能文档待办 P3）
+- 已知无害告警：`DashBoy._isDashing` 未使用（CS0414）
 
 ## 双向提交（重要）
 

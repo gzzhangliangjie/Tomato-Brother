@@ -92,15 +92,13 @@ namespace Player.Weapon
                 return;
             }
 
-            // 获取一个存放周围敌人碰撞体的数组
-            var colliders = ColliderPool.Get(enemyDetectCount);
-            // 检测周围的敌人
-            var enemyCount = Physics2D.OverlapCircleNonAlloc(transform.position, detectRange, colliders, EnemyLayer);
+            // 检测周围的敌人（返回引擎池化数组，仅在本帧查询内有效）
+            var colliders = Physics2D.OverlapCircleAll(transform.position, detectRange, EnemyLayer);
 
             // 选取最近的一个敌人
             AttackTarget = null;
             var shortestDir = Mathf.Infinity;
-            for (var i = 0; i < enemyCount; i++)
+            for (var i = 0; i < colliders.Length; i++)
             {
                 var c = colliders[i];
                 var distance = Vector3.SqrMagnitude(transform.position - c.transform.position);
@@ -113,7 +111,6 @@ namespace Player.Weapon
                 AttackTarget = c.gameObject;
             }
 
-            ColliderPool.Release(colliders);
             FindEnemy = AttackTarget;
             DetectTimer = 0;
         }

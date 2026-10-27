@@ -39,13 +39,12 @@ namespace Player.Weapon.Melee
             
             // 子弹起始位置
             var originPos = AttackTarget.transform.position;
-            // 检测周围的敌人
-            var colliders = ColliderPool.Get(enemyDetectCount);
-            var enemyCount = Physics2D.OverlapCircleNonAlloc(originPos, bulletDetectRange, colliders, EnemyLayer);
-            if (enemyCount == 0) return;
+            // 检测周围的敌人（返回引擎池化数组，仅在本帧查询内有效）
+            var colliders = Physics2D.OverlapCircleAll(originPos, bulletDetectRange, EnemyLayer);
+            if (colliders.Length == 0) return;
 
             var validEnemyColliders = new List<Collider2D>();
-            for (var i = 0; i < enemyCount; i++)
+            for (var i = 0; i < colliders.Length; i++)
             {
                 var cPos = colliders[i].bounds.center;
                 var distance = Vector2.Distance(cPos, originPos);
